@@ -1,3 +1,7 @@
 pub fn nth(n: u32) -> u32 {
-    unimplemented!("What is the 0-indexed {}th prime number?", n)
+    (2..).filter(is_prime).nth(n as usize).unwrap()
+}
+
+fn is_prime(num: &u32) -> bool {
+    !(2..num - 1).into_iter().any(|x| num % x == 0)
 }
